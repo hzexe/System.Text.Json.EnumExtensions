@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Serialization;
 using JetBrains.Annotations;
 
@@ -68,8 +69,11 @@ namespace System.Text.Json.Serialization.Converters
                 {
                     throw new JsonException();
                 }
-
                 return value;
+            }
+
+            if (token == JsonTokenType.Null && ParseFromAttribute && TryParseFromAttribute(null, out var v)) {
+                return v;
             }
 
             if (token != JsonTokenType.Number || !_converterOptions.HasFlag(EnumConverterOptions.AllowNumbers))
@@ -185,7 +189,7 @@ namespace System.Text.Json.Serialization.Converters
                 if (enumMemberAttribute != null)
                 {
                     attributeValue = enumMemberAttribute.Value;
-                    return attributeValue != null;
+                    return true;// attributeValue != null;
                 }
             }
 
@@ -195,7 +199,7 @@ namespace System.Text.Json.Serialization.Converters
                 if (displayAttribute != null)
                 {
                     attributeValue = displayAttribute.Name;
-                    return attributeValue != null;
+                    return true;// attributeValue != null;
                 }
             }
 
@@ -205,7 +209,7 @@ namespace System.Text.Json.Serialization.Converters
                 if (descriptionAttribute != null)
                 {
                     attributeValue = descriptionAttribute.Description;
-                    return attributeValue != null;
+                    return true;// attributeValue != null;
                 }
             }
 
