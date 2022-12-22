@@ -23,7 +23,7 @@ namespace System.Text.Json.Serialization
         /// <param name="parseDescriptionAttribute">Parse using <see cref="ComponentModel.DescriptionAttribute"/>, default is <see langword="false"/>.</param>
         public JsonStringEnumConverterWithAttributeSupport(
             [CanBeNull] JsonNamingPolicy namingPolicy = null,
-            bool allowIntegerValues = true,
+            bool allowIntegerValues = false,
             bool parseEnumMemberAttribute = true,
             bool parseDisplayAttribute = false,
             bool parseDescriptionAttribute = false)
