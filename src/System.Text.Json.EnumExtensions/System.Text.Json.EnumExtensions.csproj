@@ -16,6 +16,7 @@
 		<DefaultLanguage>en-us</DefaultLanguage>
 		<ProjectGuid>{E6025F56-7A81-4C21-9FC1-AB7F090B1234}</ProjectGuid>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <Version>2.0</Version>
 		<!--<LangVersion>8.0</LangVersion>-->
 		<!--<Nullable>enable</Nullable>-->
 		<!--<SignAssembly>true</SignAssembly>-->
